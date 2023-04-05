@@ -1,7 +1,12 @@
 'use strict';
 
-function validate(){
-
+function validator(req, res, next){
+    if (!req.query.name){
+        next('name not found');
+    }
+    else {
+        next();
+    }
 }
 
-module.exports = validate;
+module.exports = validator;
